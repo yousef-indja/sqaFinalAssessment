@@ -7,7 +7,8 @@ import java.util.Map;
 public class Controller {
 	Map<String, Rubric> allRubrics = new HashMap();
 	Rubric rubric;
-	public String createRubric(String name, ArrayList<String>criteria) {
+	StudentGrade studentGrade;
+	public String createRubric(String name, Map<String, Integer>criteria) {
 		if(criteria.size() >9) {
 			return"Maximum of 10 criteria per rubric";
 		}else if(allRubrics.containsKey(name)){
@@ -26,8 +27,8 @@ public class Controller {
 		    Rubric r = entry.getValue();
 		    if(key.equals(rubricName)) {
 		    	if(r.getCriteria() == null) {
-					ArrayList<String> criteria = new ArrayList();
-					criteria.add(criterion);
+					Map<String, Integer> criteria = new HashMap();
+					criteria.put(criterion, null);
 					r.setCriteria(criteria);
 				}else {
 					r.addCriteria(criterion);
@@ -72,6 +73,20 @@ public class Controller {
 		}
 		
 		return results;
+	}
+	
+	public boolean createNewStudentGrade(String studentName, String rubricName ) {
+		boolean found = false;
+		for (Map.Entry<String, Rubric> entry : allRubrics.entrySet()) {
+			String key = entry.getKey();
+		    Rubric r = entry.getValue();
+		    if(r.getName().equals(rubricName)) {
+		    	studentGrade = new StudentGrade(studentName, r);
+		    	found = true;
+		    }
+		}
+		return found;
+		
 	}
 
 }
