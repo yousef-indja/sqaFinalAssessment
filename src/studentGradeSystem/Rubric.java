@@ -4,15 +4,26 @@ import java.util.ArrayList;
 
 public class Rubric {
 
+	private String name;
 	private ArrayList<String>criteria;
 
 	public Rubric() {
 		super();
 	}
 
-	public Rubric(ArrayList<String> criteria) {
+	public Rubric(String name, ArrayList<String> criteria) {
 		super();
+		this.name = name;
 		this.criteria = criteria;
+	}
+
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public ArrayList<String> getCriteria() {
@@ -23,5 +34,7 @@ public class Rubric {
 		this.criteria = criteria;
 	}
 	
-	
+	public void addCriteria(String criterion) {
+		criteria.add(criterion);
+	}
 }
