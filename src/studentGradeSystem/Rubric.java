@@ -37,4 +37,12 @@ public class Rubric {
 	public void addCriteria(String criterion) {
 		criteria.add(criterion);
 	}
+	
+	public String toString(){
+		String s = this.name + "\nCriteria: ";
+		for (String string:this.criteria) {
+			s += string + ", ";
+		}
+		return s;
+	}
 }
