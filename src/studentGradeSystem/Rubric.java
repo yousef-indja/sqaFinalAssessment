@@ -1,17 +1,18 @@
 package studentGradeSystem;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class Rubric {
 
 	private String name;
-	private ArrayList<String>criteria;
+	private Map<String, Integer>criteria;
 
 	public Rubric() {
 		super();
 	}
 
-	public Rubric(String name, ArrayList<String> criteria) {
+	public Rubric(String name, Map<String, Integer> criteria) {
 		super();
 		this.name = name;
 		this.criteria = criteria;
@@ -26,22 +27,25 @@ public class Rubric {
 		this.name = name;
 	}
 
-	public ArrayList<String> getCriteria() {
+	
+	public Map<String, Integer> getCriteria() {
 		return criteria;
 	}
 
-	public void setCriteria(ArrayList<String> criteria) {
+	public void setCriteria(Map<String, Integer> criteria) {
 		this.criteria = criteria;
 	}
-	
+
 	public void addCriteria(String criterion) {
-		criteria.add(criterion);
+		this.criteria.put(criterion, null);
 	}
 	
 	public String toString(){
 		String s = this.name + "\nCriteria: ";
-		for (String string:this.criteria) {
-			s += string + ", ";
+		for (Map.Entry<String, Integer> entry : this.criteria.entrySet()) {
+		    String key = entry.getKey();
+		    int r = entry.getValue();
+		    s += key + ", ";
 		}
 		return s;
 	}

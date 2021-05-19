@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -25,9 +27,9 @@ class ControllerTest {
 	@Test
 	@DisplayName("Creating correct rubric should work")
 	public void createRubricTest() {
-		ArrayList criteria = new ArrayList();
-		criteria.add("addition");
-		criteria.add("subtraction");
+		Map criteria = new HashMap();
+		criteria.put("addition", null);
+		criteria.put("subtraction", null);
 		assertEquals("Rubric created", controller.createRubric("Maths", criteria),
 				 "Rubric was not created"); 
 	}
@@ -35,23 +37,30 @@ class ControllerTest {
 	@Test
 	@DisplayName("Creating rubric with too many criterion should not work")
 	public void createRubricWithTooManyCriterionTest() {
-		ArrayList criteria = new ArrayList();
-		String[] criterion = {"addition", "subtraction", "multiplication", "division",
-				"percentages", "algebra", "calculus", "constants", "equations", 
-				"functions", "geometry"};
-		criteria.addAll(Arrays.asList(criterion));
-		assertEquals("Maximum of 10 criteria per rubric", controller.createRubric("Maths", criteria),
+		Map test = new HashMap();
+		test.put("addition", null);
+		test.put("subtraction", null);
+		test.put("multiplication", null);
+		test.put("division", null);
+		test.put("percentages", null);
+		test.put("algebra", null);
+		test.put("calculus", null);
+		test.put("constants", null);
+		test.put("equations", null);
+		test.put("functions", null);
+		test.put("geometry", null);
+		assertEquals("Maximum of 10 criteria per rubric", controller.createRubric("Maths", test),
 				 "Rubric should not have been created"); 
 	}
 	
 	@Test
 	@DisplayName("Creating a rubric that already exists should not work")
 	public void createExistingRubricTest() {
-		ArrayList test = new ArrayList();
+		Map test = new HashMap();
 		controller.createRubric("Maths", test);
-		ArrayList criteria = new ArrayList();
-		criteria.add("addition");
-		criteria.add("subtraction");
+		Map criteria = new HashMap();
+		criteria.put("addition", null);
+		criteria.put("subtraction", null);
 		assertEquals("This rubric already exists", controller.createRubric("Maths", criteria),
 				 "Rubric should not have been created"); 
 	}
@@ -59,7 +68,7 @@ class ControllerTest {
 	@Test
 	@DisplayName("Adding criterion to existing rubric should work")
 	public void addCriterionTest() {
-		ArrayList test = new ArrayList();
+		Map test = new HashMap();
 		controller.createRubric("java", test);
 		assertEquals("added", controller.addCriterion("java", "comments"),
 				 "Criteria was not added to rubric"); 
@@ -77,7 +86,7 @@ class ControllerTest {
 	public void getRubricListTest() {
 		assertEquals("No rubrics added" , controller.getRubricList(),
 				 "Adding criteria to a rubric should work"); 
-		ArrayList test = new ArrayList();
+		Map test = new HashMap();
 		controller.createRubric("python", test);
 		controller.createRubric("java", test);
 		assertEquals("python\nCriteria: \n \njava\nCriteria: \n \n" , controller.getRubricList(),
@@ -90,7 +99,7 @@ class ControllerTest {
 	public void getRubricByNameTest() {
 		assertEquals("No rubrics added" , controller.getRubricList(),
 				 "Adding criteria to a rubric should work"); 
-		ArrayList test = new ArrayList();
+		Map test = new HashMap();
 		controller.createRubric("python", test);
 		controller.createRubric("java", test);
 		assertEquals("python\nCriteria: \n \n" , controller.getRubricByName("python"),
@@ -100,6 +109,24 @@ class ControllerTest {
 		
 	}
 	
+	
+	@Test
+	@DisplayName("Creating a student grade should work")
+	public void createStudentGradeTest() {
+		Map test = new HashMap();
+		controller.createRubric("python", test);
+		assertEquals(true , controller.createNewStudentGrade("Aaron", "python"),
+				 "StudentGrade should be created"); 
+		
+	}
+	
+	@Test
+	@DisplayName("Creating a student grade for non existing rubric should not work")
+	public void createStudentGradeForNonexistingRubricTest() {
+		assertEquals(false , controller.createNewStudentGrade("Aaron", "python"),
+				 "StudentGrade should be created"); 
+		
+	}
 	
 	
 	
