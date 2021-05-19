@@ -47,7 +47,7 @@ public class Controller {
 		for (Map.Entry<String, Rubric> entry : allRubrics.entrySet()) {
 		    String key = entry.getKey();
 		    Rubric r = entry.getValue();
-		    results += r.getName() + "\n";
+		    results += r.toString() + "\n \n";
 		}
 		if(results.equals("")) {
 			results = "No rubrics added";
@@ -55,6 +55,23 @@ public class Controller {
 		
 		return results;
 		
+	}
+	
+	public String getRubricByName(String name) {
+		String results = "";
+		for (Map.Entry<String, Rubric> entry : allRubrics.entrySet()) {
+		    String key = entry.getKey();
+		    Rubric r = entry.getValue();
+		    if(key.equals(name)) {
+		    	results += r.toString() + "\n \n";
+		    }
+		    
+		}
+		if(results.equals("")) {
+			results = "No rubrics added";
+		}
+		
+		return results;
 	}
 
 }

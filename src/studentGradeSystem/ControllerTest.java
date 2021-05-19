@@ -80,11 +80,27 @@ class ControllerTest {
 		ArrayList test = new ArrayList();
 		controller.createRubric("python", test);
 		controller.createRubric("java", test);
-		controller.createRubric("javascript", test);
-		assertEquals("python\njava\njavascript\n" , controller.getRubricList(),
+		assertEquals("python\nCriteria: \n \njava\nCriteria: \n \n" , controller.getRubricList(),
 				 "List of rubrics should be displayed"); 
 		
 	}
+	
+	@Test
+	@DisplayName("Display specific rubric should work")
+	public void getRubricByNameTest() {
+		assertEquals("No rubrics added" , controller.getRubricList(),
+				 "Adding criteria to a rubric should work"); 
+		ArrayList test = new ArrayList();
+		controller.createRubric("python", test);
+		controller.createRubric("java", test);
+		assertEquals("python\nCriteria: \n \n" , controller.getRubricByName("python"),
+				 "List of rubrics should be displayed"); 
+		assertEquals("java\nCriteria: \n \n" , controller.getRubricByName("java"),
+				 "List of rubrics should be displayed"); 
+		
+	}
+	
+	
 	
 	
 	
