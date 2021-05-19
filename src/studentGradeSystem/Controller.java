@@ -6,6 +6,7 @@ import java.util.Map;
 
 public class Controller {
 	Map<String, Rubric> allRubrics = new HashMap();
+	ArrayList<StudentGrade> allStudentGrades = new ArrayList();
 	Rubric rubric;
 	StudentGrade studentGrade;
 	public String createRubric(String name, Map<String, Integer>criteria) {
@@ -81,12 +82,37 @@ public class Controller {
 			String key = entry.getKey();
 		    Rubric r = entry.getValue();
 		    if(r.getName().equals(rubricName)) {
-		    	studentGrade = new StudentGrade(studentName, r);
+		    	ArrayList rubrics = new ArrayList();
+		    	rubrics.add(r);
+		    	studentGrade = new StudentGrade(studentName, rubrics);
+		    	allStudentGrades.add(studentGrade);
 		    	found = true;
 		    }
 		}
 		return found;
 		
+	}
+	
+	public boolean addScoreToGrade(String rubricName, String studentName, String criterion, int score) {
+		boolean completed = false;
+		if(score<=5) {
+			for(StudentGrade sg: allStudentGrades) {
+				if(sg.getStudentName().equals(studentName)) {
+					for (Map.Entry<String, Rubric> entry : allRubrics.entrySet()) {
+						String key = entry.getKey();
+					    Rubric rbrc = entry.getValue();				   
+					    if(key.equalsIgnoreCase(rubricName)) {			
+					    	boolean added = rbrc.updateCriteria(criterion, score);
+					    	if (added == true) {
+					    		completed = true;
+					    	}
+					    }
+					}
+				}
+			}
+		}
+		
+		return completed;
 	}
 
 }

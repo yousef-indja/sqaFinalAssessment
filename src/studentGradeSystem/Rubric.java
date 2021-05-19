@@ -40,6 +40,18 @@ public class Rubric {
 		this.criteria.put(criterion, null);
 	}
 	
+	public boolean updateCriteria(String criterion, int score) {
+		boolean found = false;
+		for (Map.Entry<String, Integer> entry : criteria.entrySet()) {
+			String key = entry.getKey();
+		    if(key.equalsIgnoreCase(criterion)) {
+		    	entry.setValue(score);
+		    	found = true;
+		    }
+		}
+		return found;
+	}
+	
 	public String toString(){
 		String s = this.name + "\nCriteria: ";
 		for (Map.Entry<String, Integer> entry : this.criteria.entrySet()) {
