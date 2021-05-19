@@ -1,15 +1,16 @@
 package studentGradeSystem;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 public class StudentGrade {
 
 	private String studentName;
-	private Rubric rubric;
+	private ArrayList<Rubric> rubric;
 	public StudentGrade() {
 		super();
 	}
-	public StudentGrade(String studentName, Rubric rubric) {
+	public StudentGrade(String studentName, ArrayList<Rubric> rubric) {
 		super();
 		this.studentName = studentName;
 		this.rubric = rubric;
@@ -20,14 +21,18 @@ public class StudentGrade {
 	public void setStudentName(String studentName) {
 		this.studentName = studentName;
 	}
-	public Rubric getRubric() {
+	
+	public ArrayList<Rubric> getRubric() {
 		return rubric;
 	}
-	public void setRubric(Rubric rubric) {
+	public void setRubric(ArrayList<Rubric> rubric) {
 		this.rubric = rubric;
 	}
-	
 	public String toString() {
-		return "Student: " + this.studentName + "\nRubric: " + this.rubric.toString();
+		String s = "Student: " + this.studentName;
+		for(Rubric r: this.rubric) {
+			s += "\nRubric: " + this.rubric.toString();
+		}
+		return s;
 	}
 }

@@ -128,6 +128,68 @@ class ControllerTest {
 		
 	}
 	
+	@Test
+	@DisplayName("Ading a score to a criterion should work")
+	public void addScoreToGradeTest() {
+		Map test = new HashMap();
+		test.put("design", null);
+		controller.createRubric("python", test);
+		controller.createNewStudentGrade("Aaron", "python");
+		assertEquals(true , controller.addScoreToGrade("python", "Aaron", "design", 3),
+				 "Criterion grade should be updated"); 
+		
+	}
+	
+	@Test
+	@DisplayName("Adding a score above 5 to a criterion should not work")
+	public void addScoreAbove5ToGradeTest() {
+		Map test = new HashMap();
+		test.put("design", null);
+		controller.createRubric("python", test);
+		controller.createNewStudentGrade("Aaron", "python");
+		assertEquals(false , controller.addScoreToGrade("python", "Aaron", "design", 6),
+				 "Criterion grade should not be updated"); 
+		
+	}
+	
+	@Test
+	@DisplayName("Adding a score a criterion that doesnt exist should not work")
+	public void addScoreToNonExistingCriterionTest() {
+		Map test = new HashMap();
+		test.put("design", null);
+		controller.createRubric("python", test);
+		controller.createNewStudentGrade("Aaron", "python");
+		assertEquals(false , controller.addScoreToGrade("python", "Aaron", "implementation", 3),
+				 "Criterion grade should not be updated"); 
+		
+	}
+	
+	@Test
+	@DisplayName("Adding a score a rubric that doesnt exist should not work")
+	public void addScoreToNonExistingRubricTest() {
+		Map test = new HashMap();
+		test.put("design", null);
+		controller.createRubric("python", test);
+		controller.createNewStudentGrade("Aaron", "python");
+		assertEquals(false , controller.addScoreToGrade("java", "Aaron", "design", 3),
+				 "Criterion grade should not be updated"); 
+		
+	}
+	
+	@Test
+	@DisplayName("Adding a score a student that doesnt exist should not work")
+	public void addScoreToNonExistingStudentTest() {
+		Map test = new HashMap();
+		test.put("design", null);
+		controller.createRubric("python", test);
+		controller.createNewStudentGrade("Aaron", "python");
+		assertEquals(false , controller.addScoreToGrade("python", "Jamie", "design", 3),
+				 "Criterion grade should not be updated"); 
+		
+	}
+	
+	
+	
 	
 	
 	
