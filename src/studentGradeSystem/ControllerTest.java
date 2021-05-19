@@ -29,7 +29,7 @@ class ControllerTest {
 		criteria.add("addition");
 		criteria.add("subtraction");
 		assertEquals("Rubric created", controller.createRubric("Maths", criteria),
-				 "creating rubric should work"); 
+				 "Rubric was not created"); 
 	}
 	
 	@Test
@@ -41,7 +41,7 @@ class ControllerTest {
 				"functions", "geometry"};
 		criteria.addAll(Arrays.asList(criterion));
 		assertEquals("Maximum of 10 criteria per rubric", controller.createRubric("Maths", criteria),
-				 "Creating rubric with too many criterion should not work"); 
+				 "Rubric should not have been created"); 
 	}
 	
 	@Test
@@ -53,16 +53,39 @@ class ControllerTest {
 		criteria.add("addition");
 		criteria.add("subtraction");
 		assertEquals("This rubric already exists", controller.createRubric("Maths", criteria),
-				 "creating rubric should work"); 
+				 "Rubric should not have been created"); 
 	}
 	
 	@Test
-	@DisplayName("Adding criterion to a rubric should work")
+	@DisplayName("Adding criterion to existing rubric should work")
 	public void addCriterionTest() {
-		rubric = new Rubric();
-		assertEquals("comments", controller.addCriterion("java", "comments"),
-				 "Adding criteria to a rubric should work"); 
+		ArrayList test = new ArrayList();
+		controller.createRubric("java", test);
+		assertEquals("added", controller.addCriterion("java", "comments"),
+				 "Criteria was not added to rubric"); 
 	}
+	
+	@Test
+	@DisplayName("Adding criterion to non existing rubric should not work")
+	public void addCriterionToNonExistingRubricTest() {
+		assertEquals("not added", controller.addCriterion("java", "comments"),
+				 "Criteria shouldnt have been added to rubric"); 
+	}
+	
+	@Test
+	@DisplayName("Display rubrics should work")
+	public void getRubricListTest() {
+		assertEquals("No rubrics added" , controller.getRubricList(),
+				 "Adding criteria to a rubric should work"); 
+		ArrayList test = new ArrayList();
+		controller.createRubric("python", test);
+		controller.createRubric("java", test);
+		controller.createRubric("javascript", test);
+		assertEquals("python\njava\njavascript\n" , controller.getRubricList(),
+				 "List of rubrics should be displayed"); 
+		
+	}
+	
 	
 	
 

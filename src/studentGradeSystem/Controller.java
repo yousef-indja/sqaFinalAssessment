@@ -20,15 +20,41 @@ public class Controller {
 	}
 	
 	public String addCriterion(String rubricName, String criterion) {
-		rubric = new Rubric();
-		if(rubric.getCriteria() == null) {
-			ArrayList<String> criteria = new ArrayList();
-			criteria.add(criterion);
-			rubric.setCriteria(criteria);
-		}else {
-			rubric.addCriteria(criterion);
+		boolean found = false;
+		for (Map.Entry<String, Rubric> entry : allRubrics.entrySet()) {
+		    String key = entry.getKey();
+		    Rubric r = entry.getValue();
+		    if(key.equals(rubricName)) {
+		    	if(r.getCriteria() == null) {
+					ArrayList<String> criteria = new ArrayList();
+					criteria.add(criterion);
+					r.setCriteria(criteria);
+				}else {
+					r.addCriteria(criterion);
+				}
+				found = true;
+		    }
 		}
-		return rubric.getCriteria().get(0);
+		if(found == true) {
+			return "added";
+		}else{
+			return "not added";
+		}
+	}
+	
+	public String getRubricList() {
+		String results = "";
+		for (Map.Entry<String, Rubric> entry : allRubrics.entrySet()) {
+		    String key = entry.getKey();
+		    Rubric r = entry.getValue();
+		    results += r.getName() + "\n";
+		}
+		if(results.equals("")) {
+			results = "No rubrics added";
+		}
+		
+		return results;
+		
 	}
 
 }
