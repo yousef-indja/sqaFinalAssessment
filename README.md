@@ -6,7 +6,7 @@ Create Controller class that does the following: <b>[17 Hours]</b>
 - Add a Criterion to Rubric <b>[2 Hours]</b>
 - Get a list of all Rubrics <b>[1 Hour]</b>
 - Get specific Rubric by name <b>[2 Hours]</b>
-  - Create a new Grade <b>[1 Hour]</b>
+- Create a new Grade <b>[1 Hour]</b>
 - Add a score for a particular Criterion to Grade <b>[2 Hours]</b>
 - Get all student grades associated to a rubric <b>[2 Hours]</b>
 - Summary calculation for Rubric: <b>[3 Hours]</b>
