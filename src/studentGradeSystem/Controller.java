@@ -209,7 +209,7 @@ public class Controller {
 	        temp += squrDiffToMean;
 	    }
 	    double meanOfDiffs = (double) temp / (double) (score.size());
-	    System.out.println(Math.sqrt(meanOfDiffs));
+	    //System.out.println(Math.sqrt(meanOfDiffs));
 	    return Math.sqrt(meanOfDiffs);
 		
 	}
@@ -251,7 +251,7 @@ public class Controller {
 		//System.out.println(average);
 		
 		
-		System.out.println("Criterion" + average);
+		//System.out.println("Criterion" + average);
 		return average;
 	}
 	
@@ -280,7 +280,7 @@ public class Controller {
 	        temp += squrDiffToMean;
 	    }
 	    double meanOfDiffs = (double) temp / (double) (score.size());
-	    System.out.println(Math.sqrt(meanOfDiffs));
+	    //System.out.println(Math.sqrt(meanOfDiffs));
 	    return Math.sqrt(meanOfDiffs);
 		
 	}

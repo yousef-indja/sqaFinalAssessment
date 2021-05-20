@@ -63,8 +63,8 @@ public class StudentGrade {
 
 
 	public String toString() {
-		String s = "Student: " + this.studentName + "\nRubrics: \n" +this.rubric.toString()
-		+ "\n" + criteria.toString();
+		String s = "Student: " + this.studentName + "\nRubrics: " +this.rubric
+		+ "\nGrade: " + this.getTotal();
 		
 		return s;
 	}
