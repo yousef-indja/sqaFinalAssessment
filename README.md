@@ -22,24 +22,24 @@ Create Controller class that does the following: <b>[17 Hours]</b>
 These estimates were chosen based off prior experience of developing code to tackle similar problems, while also taking into consideration test-driven development, and the added time that comes with writing these tests.
 <br>
 <b>Velocity Metric</b><br>
-Sprint velocity refers to teams analysing how much work they completed in previous sprints, and using that information to estimate how much work they can do in future sprints. This helps to better plan projects and predict how much work can be done in the next sprint, better calculate the amount of resources and effort needed, and help senior managmnet have a better idea of when to expect delivery of the product.<br>
+Sprint velocity refers to teams analysing how much work they completed in previous sprints, and using that information to estimate how much work they can do in future sprints. This helps to better plan projects and predict how much work can be done in the next sprint, better calculate the number of resources and effort needed, and help senior management have a better idea of when to expect delivery of the product.<br>
 <br>
 There are two steps to calculating the velocity metric of a sprint, which are as follows:<br>
 <br>
 <b>Step 1:</b> Count how many user story points are completed in the previous sprints.<br>
 For example, in sprint 1:
 
--  The team commited to finishing 4 user stories.
+-  The team committed to finishing 4 user stories.
 -  Each with 8 points per story for a total of 32 story points. 
 -  However, the team only completed 3 of the 4 stories in the sprint.
 
 In sprint 2:
-- The team commited to 5 user stories.(including the 1 that was not completed in sprint 1)
+- The team committed to 5 user stories.(including the 1 that was not completed in sprint 1)
 - Each with 8 points per story for a total of 40 story points.
 - However, the team only completed 4 of the stories.
 
 In sprint 3:
-- The team commited to 6 user stories.
+- The team committed to 6 user stories.
 - Each with 8 points per story for a total of 40 story points.
 - However, the team only completed 4 of the stories.
 
@@ -53,18 +53,31 @@ Average sprint velocity is 88/3 = 27.<br>
 <br>
 The team can now base the amount of work to be done in future sprints on the average of 27 story points per sprint. While this is only an estimation, it provides a good starting point for teams to determine how much work can be done in each sprint.
 <br>
-# Unit Testing and Test Driven Developement<br>
-In order to follow a test driven developemtn approach, I wrote my tests prior to writing my methods. This helped me focus on what each method is supposed to do. jUnit was used to write the tests. For example, the commit in which I added a method for creating a rubric (https://github.com/yousef-indja/sqaFinalAssessment/commit/389f1428a8167905b373bc1cefa54c02a7d2554a) there is a test case committed also. This test was written before the method in order to better follow a test driven approach.<br>
+# Unit Testing and Test Driven Development<br>
+In order to follow a test driven development approach, I wrote my tests prior to writing my methods. This helped me focus on what each method is supposed to do. jUnit was used to write the tests. For example, the commit in which I added a method for creating a rubric (https://github.com/yousef-indja/sqaFinalAssessment/commit/389f1428a8167905b373bc1cefa54c02a7d2554a) there is a test case committed also. This test was written before the method in order to better follow a test driven approach.<br>
 <br>
 # Test Coverage Metric<br>
-In order to verify that there is sufficent unit testing, I have chosen EclEmma, an Eclipse test coverage plug-in. I chose EclEmma as it comes pre-downloaded with the eclipse IDE, making it straight forward to use. 
+In order to verify that there is sufficient unit testing, I have chosen EclEmma, an Eclipse test coverage plug-in. I chose EclEmma as it comes pre-downloaded with the eclipse IDE, making it straight forward to use. 
 <br>In order to run the tool, you must first ensure that it is up-to-date. This can be done by following these steps in Eclipse: 
 <be>On the top menu press <b>Help</b>-><b>Eclipse Marketplace</b>
 <br>From here you can search for EclEmma and install it. If it is pre-installed, click the *installed* button -> Press the <b>Update</b> button associated with EclEmma. If there is no <b>Update</b> button, and only an <b>Uninstall</b> button, your EclEmma plug-in is already up-to-date.
 <br>Once EclEmma is up-to-date, right click on the project file in the package explorer on the left. Select <b>Coverage As</b>-><b>jUnit Test</b>
-<br>You will then be shown the precentage coverage per class at the bottom of the screen.
+<br>You will then be shown the percentage coverage per class at the bottom of the screen.
 <br>![firstRunOfTestCoverage](images/jUnitTestPrior2.png)
 <br>In this first screenshot, you can see that in the StudentGrade class, the test coverage is only 49.3%, with methods such as the toString() not being tested.
 <br>![secondRunOfTestCoverage](images/jUnitTestAfter.png)
 <br>In this second screenshot, the test coverage for StudentGrade has gone up to 89%, as I added a test for the toString() method.
 <br>This shows how a test coverage tool can help expose parts of your code that are not tested for, and help the developer by showing where exactly the tests are missing.
+<br>
+# Team Version-Control<br>
+Team version control tracks the history of changes as people and teams collaborate on projects. It provides confidence in the fact that previous versions of the code can be recovered at any time in the event that an update causes problems. 
+<br>For this project, I tried to make and work off a new branch every time I implemented a new feature. This ensured that if a new feature caused problems, I could always roll back to the previous version.
+
+# Code Reviews<br>
+Code review is a process used to ensure that code meets the functional requirements while also helping developers keep to the best coding practices. Having a checklist while reviewing code can help keep important questions at the front of your mind. Some questions on this checklist could be:
+<br>
+- Am I able to easily understand the code?
+- Is the code written following the coding standards and guidelines?
+- Is there duplication of the same code more than twice?
+- Is a function or class too big? And if so, does it have too many responsibilities?
+<br>By following a checklist like this, it ensures that bugs are found early, coding standards remain complient, there is a highr software quality, and allows for better team cohesion as team members come together to review and discuss code.  
