@@ -52,3 +52,19 @@ Total = 96.<br>
 Average sprint velocity is 88/3 = 27.<br>
 <br>
 The team can now base the amount of work to be done in future sprints on the average of 27 story points per sprint. While this is only an estimation, it provides a good starting point for teams to determine how much work can be done in each sprint.
+<br>
+# Unit Testing and Test Driven Developement<br>
+In order to follow a test driven developemtn approach, I wrote my tests prior to writing my methods. This helped me focus on what each method is supposed to do. jUnit was used to write the tests. For example, the commit in which I added a method for creating a rubric (https://github.com/yousef-indja/sqaFinalAssessment/commit/389f1428a8167905b373bc1cefa54c02a7d2554a) there is a test case committed also. This test was written before the method in order to better follow a test driven approach.<br>
+<br>
+# Test Coverage Metric<br>
+In order to verify that there is sufficent unit testing, I have chosen EclEmma, an Eclipse test coverage plug-in. I chose EclEmma as it comes pre-downloaded with the eclipse IDE, making it straight forward to use. 
+<br>In order to run the tool, you must first ensure that it is up-to-date. This can be done by following these steps in Eclipse: 
+<be>On the top menu press <b>Help</b>-><b>Eclipse Marketplace</b>
+<br>From here you can search for EclEmma and install it. If it is pre-installed, click the *installed* button -> Press the <b>Update</b> button associated with EclEmma. If there is no <b>Update</b> button, and only an <b>Uninstall</b> button, your EclEmma plug-in is already up-to-date.
+<br>Once EclEmma is up-to-date, right click on the project file in the package explorer on the left. Select <b>Coverage As</b>-><b>jUnit Test</b>
+<br>You will then be shown the precentage coverage per class at the bottom of the screen.
+<br>![firstRunOfTestCoverage](images/jUnitTestPrior2.png)
+<br>In this first screenshot, you can see that in the StudentGrade class, the test coverage is only 49.3%, with methods such as the toString() not being tested.
+<br>![secondRunOfTestCoverage](images/jUnitTestAfter.png)
+<br>In this second screenshot, the test coverage for StudentGrade has gone up to 89%, as I added a test for the toString() method.
+<br>This shows how a test coverage tool can help expose parts of your code that are not tested for, and help the developer by showing where exactly the tests are missing.

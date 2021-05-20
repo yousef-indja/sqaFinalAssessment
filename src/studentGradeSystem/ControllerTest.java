@@ -17,11 +17,13 @@ class ControllerTest {
 
 	private Rubric rubric;
 	private Controller controller;
+	private StudentGrade studentGrade;
 	
 	@BeforeEach
 	public void setUp()throws Exception{
 		controller = new Controller();
 		rubric = new Rubric();
+		studentGrade = new StudentGrade();
 	}
 	
 	@Test
@@ -418,7 +420,14 @@ class ControllerTest {
 				 "correct Max Min should be returned"); 
 	}
 	
-	
+	@Test
+	@DisplayName("Test toString method of StudentGrade")
+	public void studentGradeToStringTest() {
+		Map test = new HashMap();
+		studentGrade = new StudentGrade("Aaron", "python",test, 15);
+		assertEquals("Student: Aaron\nRubrics: python\nGrade: 15" , studentGrade.toString(),
+				 "correct student info should be shown"); 
+	}
 	
 
 }
