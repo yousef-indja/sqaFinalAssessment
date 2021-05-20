@@ -79,5 +79,5 @@ Code review is a process used to ensure that code meets the functional requireme
 - Am I able to easily understand the code?
 - Is the code written following the coding standards and guidelines?
 - Is there duplication of the same code more than twice?
-- Is a function or class too big? And if so, does it have too many responsibilities?
+- Is a function or class too big? And if so, does it have too many responsibilities?<br>
 <br>By following a checklist like this, it ensures that bugs are found early, coding standards remain complient, there is a highr software quality, and allows for better team cohesion as team members come together to review and discuss code.  
