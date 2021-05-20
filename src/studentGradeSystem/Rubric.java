@@ -1,5 +1,4 @@
 package studentGradeSystem;
-
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -7,6 +6,7 @@ public class Rubric {
 
 	private String name;
 	private Map<String, Integer>criteria;
+	private int total;
 
 	public Rubric() {
 		super();
@@ -40,24 +40,23 @@ public class Rubric {
 		this.criteria.put(criterion, null);
 	}
 	
-	public boolean updateCriteria(String criterion, int score) {
-		boolean found = false;
-		for (Map.Entry<String, Integer> entry : criteria.entrySet()) {
-			String key = entry.getKey();
-		    if(key.equalsIgnoreCase(criterion)) {
-		    	entry.setValue(score);
-		    	found = true;
-		    }
-		}
-		return found;
+	
+	public int getTotal() {
+		return total;
 	}
+
+	public void setTotal(int total) {
+		this.total = total;
+	}
+	
+	
 	
 	public String toString(){
 		String s = this.name + "\nCriteria: ";
 		for (Map.Entry<String, Integer> entry : this.criteria.entrySet()) {
 		    String key = entry.getKey();
 		    int r = entry.getValue();
-		    s += key + ", ";
+		    s += key + ": " + r + ", ";
 		}
 		return s;
 	}
