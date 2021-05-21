@@ -1,5 +1,5 @@
 # 1. Scrum Sprint Backlog and Task Estimation <br>
-### Tasks: <br>
+### Task Estimation: <br>
 Create java objects for Rubric, Criterion, Grade. <b>[1 Hour]</b><br>
 Create Controller class that does the following: <b>[17 Hours]</b> 
 - Create new Rubric <b>[1 Hour]</b>
