@@ -75,7 +75,7 @@ Test coverage is a good indicator of software quality and an important part of s
 <br>![firstRunOfTestCoverage](images/jUnitTestPrior2.png)
 <br>In this first screenshot, you can see that in the StudentGrade class, the test coverage is only 49.3%, with methods such as the toString() not being tested.
 <br>![secondRunOfTestCoverage](images/jUnitTestAfter.png)
-<br>In this second screenshot, the test coverage for StudentGrade has gone up to 89%, as I added a test for the toString() method.
+<br>In this second screenshot, the test coverage for StudentGrade has gone up to 82%, as I added a test for the toString() method.
 <br>This shows how a test coverage tool can help expose parts of your code that are not tested for, and help the developer by showing where exactly the tests are missing.
 <br>
 # Team Version-Control<br>
