@@ -1,12 +1,12 @@
 # 1. Scrum Sprint Backlog and Task Estimation <br>
 ### Task Estimation: <br>
-Create java objects for Rubric, Criterion, Grade. <b>[1 Hour]</b><br>
+Create java objects for Rubric, and StudentGrade. <b>[1 Hour]</b><br>
 Create Controller class that does the following: <b>[17 Hours]</b> 
 - Create new Rubric <b>[1 Hour]</b>
 - Add a Criterion to Rubric <b>[2 Hours]</b>
 - Get a list of all Rubrics <b>[1 Hour]</b>
 - Get specific Rubric by name <b>[2 Hours]</b>
-- Create a new Grade <b>[1 Hour]</b>
+- Create a new StudentGrade <b>[1 Hour]</b>
 - Add a score for a particular Criterion to Grade <b>[2 Hours]</b>
 - Get all student grades associated to a rubric <b>[2 Hours]</b>
 - Summary calculation for Rubric: <b>[3 Hours]</b>
@@ -19,7 +19,7 @@ Create Controller class that does the following: <b>[17 Hours]</b>
   - Minimum and maximum score <b>[40 Mins]</b>
 
 <br>
-These estimates were chosen based off prior experience of developing code to tackle similar problems, while also taking into consideration test-driven development, and the added time that comes with writing these tests.
+These estimates were chosen based off prior experience of developing code to tackle similar problems, while also taking into consideration test-driven development, and the added time that comes with writing these tests. I have also put down shorter times for implementaing summary calculations for a specific criterion as I will be able to use mostly the same code as I used for summary calculations of a rubric.
 <br>
 <b>Velocity Metric</b><br>
 Sprint velocity refers to teams analysing how much work they completed in previous sprints, and using that information to estimate how much work they can do in future sprints. This helps to better plan projects and predict how much work can be done in the next sprint, better calculate the number of resources and effort needed, and help senior management have a better idea of when to expect delivery of the product.<br>
@@ -43,18 +43,22 @@ In sprint 3:
 - Each with 8 points per story for a total of 40 story points.
 - However, the team only completed 4 of the stories.
 
-<b>Step 2:</b> Calculate the average of completed story points.
+<b>Step 2:</b> Calculate the average of completed story points.<br>
 The team must then add up the total story points that were completed from each sprint, then divide by the number of sprints.<br>
 Sprint 1: 3 stories x 8 story points = 24<br>
 Sprint 2: 4 stories x 8 story points = 32<br>
 Sprint 2: 4 stories x 8 story points = 32<br>
 Total = 96.<br>
-Average sprint velocity is 88/3 = 27.<br>
+Average sprint velocity is 88/3 = 27 story points.<br>
 <br>
 The team can now base the amount of work to be done in future sprints on the average of 27 story points per sprint. While this is only an estimation, it provides a good starting point for teams to determine how much work can be done in each sprint.
 <br>
-# Unit Testing and Test Driven Development<br>
-In order to follow a test driven development approach, I wrote my tests prior to writing my methods. This helped me focus on what each method is supposed to do. jUnit was used to write the tests. For example, the commit in which I added a method for creating a rubric (https://github.com/yousef-indja/sqaFinalAssessment/commit/389f1428a8167905b373bc1cefa54c02a7d2554a) there is a test case committed also. This test was written before the method in order to better follow a test driven approach.<br>
+# Unit Testing and Test-Driven Development<br>
+In order to follow a test-driven development approach, I wrote my tests prior to writing my methods. This helped me focus on what each method is supposed to do. jUnit was used to write the tests. For example, the commit in which I added a method for creating a rubric (https://github.com/yousef-indja/sqaFinalAssessment/commit/389f1428a8167905b373bc1cefa54c02a7d2554a) there is a test case committed also. <br>
+Following a test driven-development process can be beneficial for a number of reasons. 
+<br>Firstly, this approach allows for better program design and higher code quality. Programmers must define and understand the goal that they want to achieve with their code by writing tests first. The quality of code also improves as all possible mistakes are taken into account, therefore allowing the code to give better results. Code that fits test requirements are also usually simple, straightforward, and have clear structure.
+<br>Another benefit of test driven development is that it can shorten development times. When creating code without tests, programmers must try to figure out whether the code will work or not. Test driven development allows for an immediate response to code that does not work properly. This shortens the time it takes to fix bugs and errors. The increased quality of code that comes from test driven development will also reduce time spent on code maintenance.
+<br>Lastly, test driven development allows programmers to be sure that any new updates are sure to work. Without these tests, developers cannot be sure how new changes to their code will affect previously working code. Any new changes could break the code.
 <br>
 # Test Coverage Metric<br>
 In order to verify that there is sufficient unit testing, I have chosen EclEmma, an Eclipse test coverage plug-in. I chose EclEmma as it comes pre-downloaded with the eclipse IDE, making it straight forward to use. 
