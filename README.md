@@ -63,10 +63,12 @@ Following a test driven-development process can be beneficial for a number of re
 # Test Coverage Metric<br>
 In order to verify that there is sufficient unit testing, I have chosen EclEmma, an Eclipse test coverage plug-in. I chose EclEmma as it comes pre-downloaded with the eclipse IDE, making it straight forward to use. 
 <br>In order to run the tool, you must first ensure that it is up-to-date. This can be done by following these steps in Eclipse: 
-<be>On the top menu press <b>Help</b>-><b>Eclipse Marketplace</b>
-<br>From here you can search for EclEmma and install it. If it is pre-installed, click the *installed* button -> Press the <b>Update</b> button associated with EclEmma. If there is no <b>Update</b> button, and only an <b>Uninstall</b> button, your EclEmma plug-in is already up-to-date.
-<br>Once EclEmma is up-to-date, right click on the project file in the package explorer on the left. Select <b>Coverage As</b>-><b>jUnit Test</b>
-<br>You will then be shown the percentage coverage per class at the bottom of the screen.
+- <br>On the top menu press <b>Help</b>-><b>Eclipse Marketplace</b>
+- <br>From here you can search for EclEmma and install it. 
+- - If it is pre-installed, click the *installed* button
+- - - Press the <b>Update</b> button associated with EclEmma. If there is no <b>Update</b> button, and only an <b>Uninstall</b> button, your EclEmma plug-in is already up-to-date.
+- <br>Once EclEmma is up-to-date, right click on the project file in the package explorer on the left. Select <b>Coverage As</b>-><b>jUnit Test</b>
+- <br>You will then be shown the percentage coverage per class at the bottom of the screen.
 <br>![firstRunOfTestCoverage](images/jUnitTestPrior2.png)
 <br>In this first screenshot, you can see that in the StudentGrade class, the test coverage is only 49.3%, with methods such as the toString() not being tested.
 <br>![secondRunOfTestCoverage](images/jUnitTestAfter.png)
